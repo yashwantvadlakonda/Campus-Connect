@@ -1,137 +1,545 @@
-# CampusConnect (Campus Event & Team Finder)
+# Campus Connect
 
-> A modern, high-performance platform engineered for university ecosystems. Featuring Tinder-style event discovery, sub-16ms skill matching heuristics, PostgreSQL ACID-compliant seat allocation, and a restricted faculty governance console.
+> A centralized campus platform to discover opportunities, participate in hackathons, manage events, and find the right teammates through skill-based matching.
 
----
+Campus Connect is a web-based campus collaboration platform designed to connect students, faculty, and administrators through a unified digital ecosystem.
 
-## 🏛️ Engineering Authors
+The platform provides separate portals for students and faculty/administrators. Faculty can create and manage hackathons, publish events, and share announcements, while students can discover opportunities, build teams, and connect with other students based on their technical skills, interests, and project requirements.
 
-- **Vadlakonda Yashwanth** — Lead Architect & Frontend Engineer
-- **Konderi Ram Shankar** — Backend & Geospatial Systems Engineer
-- **Yagati Shiva** — ML Heuristics & Graph Algorithms Engineer
+One of the core ideas behind Campus Connect is making it easier for students to find suitable teammates instead of struggling to build teams independently.
 
 ---
 
-## 🏗️ Repository Architecture
+## 🚀 Live Demo
 
-The project is cleanly decoupled into three independent, production-ready modules:
+**Live Application:** [Add your deployed URL]
 
+**GitHub Repository:**  
+https://github.com/yashwantvadlakonda/Campus-Connect
+
+---
+
+## 📌 Problem Statement
+
+Students often face difficulties discovering hackathons, workshops, technical events, and other campus opportunities.
+
+Another major challenge is finding suitable teammates for hackathons and collaborative projects.
+
+For example, a student interested in participating in an AI hackathon may have Python and Machine Learning skills but may not know anyone with frontend, backend, or UI/UX experience.
+
+Similarly, students with different technical skills may struggle to connect with one another and form balanced teams.
+
+Faculty and administrators also need a centralized platform to publish events, manage hackathons, and communicate information to students.
+
+Campus Connect aims to address these challenges through one integrated platform.
+
+---
+
+## 💡 Solution
+
+Campus Connect brings students, faculty, and administrators together through separate role-based portals.
+
+The platform focuses on three major areas:
+
+1. **Campus Opportunity Management:** Create, publish, and discover hackathons, workshops, and events.
+2. **Skill-Based Team Formation:** Help students discover suitable teammates based on skills, interests, proficiency, and project requirements.
+3. **Centralized Campus Management:** Provide faculty and administrators with tools to manage activities and communicate updates.
+
+---
+
+## ✨ Features
+
+### 1. Faculty & Admin Portal
+
+A centralized dashboard for faculty and administrators to manage campus activities.
+
+**Features:**
+
+- Faculty and administrator dashboard
+- Create and manage hackathons
+- Publish technical and non-technical events
+- Create workshops and competitions
+- Manage event information
+- Manage registrations and participation
+- Publish announcements
+- Update event details
+- Monitor campus activities
+- Manage student-related information
+
+### 2. Student Portal
+
+A dedicated portal where students can discover opportunities and participate in campus activities.
+
+**Features:**
+
+- Student dashboard
+- Browse published hackathons
+- Discover workshops and events
+- View event descriptions and requirements
+- Explore available opportunities
+- Manage student profiles
+- Add technical and non-technical skills
+- Specify interests and preferred roles
+- Explore team formation opportunities
+- Manage team invitations and requests
+
+### 3. Skill-Based Team Formation & Teammate Matching
+
+<badge color="success">Core Feature</badge>
+
+One of the major challenges for students participating in hackathons and collaborative projects is finding teammates with the right skills.
+
+Campus Connect aims to simplify team formation by connecting students based on their current technical skills, interests, experience, and project requirements.
+
+**Key Features:**
+
+- Student skill profiles
+- Add and update technical skills
+- Define skill proficiency levels
+- Specify areas of interest
+- Select preferred project roles
+- Create project or hackathon teams
+- Define required team roles
+- Specify required skills for each role
+- Discover students with matching skills
+- Find teammates with complementary skills
+- Send team invitations
+- Accept or reject invitations
+- View team members and their skills
+- Manage team participation
+
+#### How Skill-Based Matching Works
+
+1. Students create their profiles and add their existing skills.
+2. Students specify their interests and preferred roles.
+3. A team creator creates a team or project.
+4. The creator defines the required skills and roles.
+5. Campus Connect identifies students whose profiles match the requirements.
+6. Students can explore suitable candidates.
+7. Team creators can send invitations to selected students.
+8. Students can accept or reject invitations.
+
+#### Example 1: AI Hackathon Team Formation
+
+A student wants to participate in an AI hackathon and needs a four-member team.
+
+| Required Role | Required Skills |
+|---|---|
+| AI/ML Developer | Python, Machine Learning |
+| Frontend Developer | React, JavaScript |
+| Backend Developer | Python, FastAPI |
+| UI/UX Designer | Figma, UI Design |
+
+Campus Connect helps the team creator discover students who have these skills and are interested in participating.
+
+#### Example 2: Complementary Skill Matching
+
+A student has experience in Python and Machine Learning but has limited frontend development knowledge.
+
+The platform can recommend students with:
+
+- React and JavaScript skills
+- UI/UX design experience
+- Backend development skills
+
+This helps students build balanced teams with complementary skill sets rather than selecting teammates only because they have similar skills.
+
+**Goal:** Help students find the right teammates, form balanced teams, and collaborate more effectively.
+
+### 4. Hackathon & Event Management
+
+- Create hackathons
+- Publish event details
+- Display event dates and deadlines
+- Provide participation information
+- Manage event registrations
+- Allow students to discover available events
+- Centralize campus event information
+
+### 5. Announcements & Updates
+
+- Publish important campus announcements
+- Share event-related updates
+- Provide students with relevant information
+- Keep campus activities organized in one platform
+
+---
+
+## 🏗️ System Architecture
+
+Campus Connect follows a frontend-backend architecture with separate student and faculty/admin interfaces.
+
+```text
+                    CAMPUS CONNECT
+                           |
+             +-------------+-------------+
+             |                           |
+             v                           v
+       FACULTY / ADMIN               STUDENT
+           PORTAL                    PORTAL
+             |                           |
+             v                           v
+       Manage Hackathons           Discover Events
+       Publish Events              Find Teammates
+       Manage Activities           Skill Matching
+       Announcements               Create Teams
+             |                           |
+             +-------------+-------------+
+                           |
+                           v
+                    REACT FRONTEND
+                           |
+                           v
+                     PYTHON BACKEND
+                           |
+                           v
+                    DATABASE LAYER
+                           |
+                           v
+                 PERSISTENT DATA STORAGE
 ```
+
+---
+
+## 🔄 Skill-Based Team Matching Workflow
+
+```text
+                STUDENT REGISTRATION
+                         |
+                         v
+                 CREATE STUDENT PROFILE
+                         |
+                         v
+                  ADD CURRENT SKILLS
+                         |
+                         v
+                 SELECT INTERESTS
+                         |
+                         v
+                SELECT PREFERRED ROLES
+                         |
+                         v
+                 CREATE OR JOIN TEAM
+                         |
+                         v
+               DEFINE REQUIRED SKILLS
+                         |
+                         v
+                 SKILL MATCHING
+                         |
+                         v
+              DISPLAY SUITABLE STUDENTS
+                         |
+                         v
+                SEND TEAM INVITATION
+                         |
+                         v
+                ACCEPT / REJECT REQUEST
+                         |
+                         v
+                  TEAM FORMATION
+```
+
+The matching approach should consider complementary skills, required roles, proficiency levels, interests, and availability rather than relying only on identical skill names.
+
+---
+
+## 🗄️ Database
+
+Campus Connect uses a database-backed architecture to store and manage application information.
+
+The project includes database initialization scripts and migration files in the `database/` directory, along with backend database configuration.
+
+Application data includes the following logical categories:
+
+| Data Category | Purpose |
+|---|---|
+| Users | Account and authentication information |
+| Student Profiles | Student details and interests |
+| Skills | Technical skills and proficiency |
+| Hackathons | Hackathon information |
+| Events | Campus event details |
+| Registrations | Student participation information |
+| Teams | Team information and membership |
+| Team Invitations | Team joining requests |
+| Announcements | Campus updates |
+
+The exact database schema and relationships are defined by the SQL initialization scripts and migrations.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React.js | Frontend development |
+| Vite | Frontend build tool |
+| JavaScript | Application development |
+| Tailwind CSS | UI styling |
+| React Router | Navigation and routing |
+| Framer Motion | Animations and transitions |
+| Recharts | Data visualization |
+| Python | Backend development |
+| FastAPI | Backend API framework |
+| PostgreSQL | Relational database configuration |
+| Supabase | Database and backend services |
+| Git | Version control |
+| GitHub | Source code management |
+| Render | Deployment configuration |
+
+---
+
+## 📂 Project Structure
+
+```text
 Campus-Connect/
-├── frontend/             # React 18, Vite, Tailwind CSS, Lucide Icons, Recharts
-│   ├── src/              # Application components, routes, and design system
-│   ├── public/           # Static web assets
-│   ├── index.html        # SPA root HTML template
-│   ├── vite.config.js    # Vite bundler configuration
-│   └── package.json      # Dependencies and scripts
 │
-├── backend/              # FastAPI, Pydantic, Supabase Python Client
-│   ├── main.py           # Core REST API endpoints and middleware
-│   ├── models.py         # Pydantic schemas and request validators
-│   ├── database.py       # Supabase service-role client helper
-│   ├── requirements.txt  # Python package dependencies
-│   └── scripts/          # Admin provisioning (create_admin.py) & seed scripts
+├── backend/
+│   ├── main.py
+│   ├── models.py
+│   ├── database.py
+│   ├── sqlite_store.py
+│   ├── requirements.txt
+│   ├── scripts/
+│   └── .env.example
 │
-└── database/             # PostgreSQL, PostGIS, pg_cron, Row-Level Security
-    ├── init.sql          # Complete DDL schema, ACID triggers, RPCs, views
-    ├── migrations/       # Incremental updates for existing database deployments
-    └── README.md         # Database deployment and extension setup guide
+├── database/
+│   ├── init.sql
+│   ├── purge_and_verify.sql
+│   ├── README.md
+│   └── migrations/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   ├── contexts/
+│   ├── pages/
+│   └── services/
+│
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── render.yaml
+├── tailwind.config.js
+├── postcss.config.js
+└── vite.config.js
 ```
 
 ---
 
-## 🚀 Quick Start Guide
+## 💻 Getting Started
 
-### 1. Database Setup (Supabase / PostgreSQL)
+### Prerequisites
 
-1. Open your PostgreSQL or [Supabase](https://supabase.com) project SQL editor.
-2. Ensure extensions are enabled:
-   - `uuid-ossp`
-   - `postgis`
-   - `pg_cron`
-3. Execute [`database/init.sql`](./database/init.sql). This establishes:
-   - Tables (`profiles`, `events`, `event_registrations`, `teammate_swipes`, `matches`, `messages`)
-   - PostgreSQL row locks for guaranteed seat allocations (`FOR UPDATE`)
-   - `v_skill_demand` view and `admin_dashboard()`, `admin_list_users()` RPC functions
-   - Comprehensive Row-Level Security (RLS) policies.
-4. For an existing Supabase project, apply [`database/migrations/20261110_add_student_profile_fields.sql`](./database/migrations/20261110_add_student_profile_fields.sql) to add the saved major/year fields and enable profile realtime updates.
+Install the following:
+
+- Node.js 22.12 or later
+- npm
+- Python 3
+- Git
+- Supabase account (if using Supabase services)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yashwantvadlakonda/Campus-Connect.git
+```
+
+Move into the project directory:
+
+```bash
+cd Campus-Connect
+```
+
+### 2. Frontend Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file in the project root.
+
+Configure the required environment variables:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_publishable_key
+VITE_BACKEND_URL=http://localhost:8000/api
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the application:
+
+```text
+http://localhost:5173
+```
+
+### 3. Backend Setup
+
+Open another terminal and navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Create a Python virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment on Windows:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Install backend dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Configure backend environment variables using `backend/.env.example`.
+
+Start the backend using the configured application entry point. For a FastAPI application exposed as `app` in `main.py`, use:
+
+```bash
+uvicorn main:app --reload
+```
+
+The backend will typically be available at:
+
+```text
+http://localhost:8000
+```
 
 ---
 
-### 2. Backend Setup (FastAPI)
+## 🔐 Environment Variables & Security
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Create and activate a Python virtual environment:
-   ```bash
-   python -m venv .venv
-   # Windows:
-   .venv\Scripts\activate
-   # Linux/macOS:
-   source .venv/bin/activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Configure environment variables in `backend/.env`:
-   ```env
-   SUPABASE_URL=https://your-project.supabase.co
-   SUPABASE_ANON_KEY=your-publishable-anon-key
-   SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-   ```
-5. Provision a verified faculty administrator account:
-   ```bash
-   python scripts/create_admin.py faculty.admin@university.edu CampusAdmin2026! "Faculty Administrator"
-   ```
-6. Start the API server:
-   ```bash
-   uvicorn main:app --reload --host 127.0.0.1 --port 8000
-   ```
-   API Documentation: `http://localhost:8000/docs`
+Campus Connect uses environment variables for application configuration and database connectivity.
+
+Security practices:
+
+- Never commit real `.env` files.
+- Never expose Supabase service-role keys in frontend code.
+- Keep backend secrets on the server.
+- Use `.env.example` to document required configuration.
+- Apply appropriate database access policies.
+- Validate user input on the backend.
+- Enforce role-based authorization for protected operations.
 
 ---
 
-### 3. Frontend Setup (React + Vite)
+## 🚀 Deployment
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure environment variables in `frontend/.env`:
-   ```env
-   VITE_SUPABASE_URL=https://your-project.supabase.co
-   VITE_SUPABASE_ANON_KEY=your-publishable-anon-key
-   VITE_BACKEND_URL=http://localhost:8000/api
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-   Open `http://localhost:5173` in your browser.
+The repository includes a `render.yaml` configuration for deploying the frontend as a static site.
 
----
+### Frontend Build
 
-## 🛡️ Core Platform Features
+```bash
+npm install
+npm run build
+```
 
-- **Tinder-Style Event Deck:** Interactive card stack (`framer-motion`) with gesture swiping for instant RSVPs.
-- **Teammate Finder Deck:** Skill-weighted heuristics matching students based on complementary project interests.
-- **ACID Row-Lock Reservations:** Database-level transaction concurrency preventing seat overbooking.
-- **Faculty / Administrator Portal (`/admin/*`):**
-  - Restricted role-based authentication guarding against student login.
-  - Telemetry Dashboard with 14-day velocity chart, in-demand skills ranking, and visual capacity meters.
-  - Event Management with PostGIS geospatial coordinates, tags array chip inputs, and cascade delete safeguards.
-  - Real-time Student Directory with instant search, branch/year filters, and modal inspections.
+### Production Build Directory
+
+```text
+dist/
+```
+
+### Deployment Configuration
+
+The Render configuration specifies:
+
+- Service type: Static Site
+- Build command: `npm install && npm run build`
+- Publish directory: `./dist`
+
+Configure the required environment variables in the deployment platform before deployment.
+
+The backend must be deployed and configured separately if it is hosted as an independent API service.
 
 ---
 
-## 📄 License & Attribution
+## 📚 What I Learned
 
-Developed as a University Software Engineering Capstone Project.
-Licensed under the MIT License.
+Developing Campus Connect provides practical experience in:
+
+- Full-stack web application development
+- React component architecture
+- Frontend and backend integration
+- REST API development
+- Database design and management
+- Authentication and role-based access
+- Student profile management
+- Skill-based teammate matching
+- Team formation and collaboration workflows
+- Hackathon and event management
+- Database migrations
+- Environment configuration
+- Git and GitHub workflows
+- Application deployment
+
+---
+
+## 🔮 Future Improvements
+
+- More advanced skill-based teammate recommendations
+- Improved team compatibility scoring
+- Team availability and scheduling
+- Student portfolio integration
+- GitHub profile integration
+- Project collaboration workspaces
+- Real-time team communication
+- Personalized hackathon recommendations
+- Advanced event analytics
+- Real-time notifications
+- Mobile application
+- AI-assisted team recommendations
+
+---
+
+## 🔗 Project Links
+
+**GitHub Repository:**  
+https://github.com/yashwantvadlakonda/Campus-Connect
+
+**Live Application:**  
+Add your deployed application URL.
+
+---
+
+## 👨‍💻 Author
+
+**Yashwanth Vadlakonda**
+
+B.Tech – Computer Science and Engineering (AI & ML)
+
+GitHub:  
+https://github.com/yashwantvadlakonda
+
+---
+
+## ⭐ Project
+
+Campus Connect aims to make campus opportunities more accessible and collaboration easier by connecting students, faculty, and administrators through a single platform.
+
+From discovering hackathons to finding teammates with complementary skills, Campus Connect brings the campus ecosystem together.
