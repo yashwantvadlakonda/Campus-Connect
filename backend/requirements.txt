@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+supabase>=2.30.0
+pydantic
+pydantic-settings
+python-dotenv
+Faker
+psycopg2-binary
